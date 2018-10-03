@@ -8,6 +8,8 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 
 from random import randint
 
+from .models import *
+
 # *********************************************************************************************************
 '''
 Section : In this section, I wrote functions for opening it
@@ -27,20 +29,21 @@ def home_page(request):
 		return render_to_response("index.html")
 
 def login_data(request):
-	if request.method == "POST" and request.is_ajax():
+	# if request.method == "POST" and request.is_ajax():
 
-		user_email = request.POST.get("user_email")
-		user_password = request.POST.get("user_password")
-		if User.objects.filter(email = user_email):
-			pass
-		else:
-			query = User.objects.create_user(username = "mvp1_user", email = user_email, password = user_password)
-			query.save()
+	user_email = request.POST.get("user_email")
+	user_password = request.POST.get("user_password")
+
+	if user_data.objects.filter(user_email = user_email):
+		pass
+	else:
+		query = user_data(user_email = user_email)
+		query.save()
 
 		# user = User.objects.get(email = user_email)
 		# login(request, user)
 
-		data = {
-			"status" : 1,
-		}
-		return JsonResponse(data)
+	data = {
+		"status" : 1,
+	}
+	return JsonResponse(data)
