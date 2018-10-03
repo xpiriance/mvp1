@@ -3,24 +3,14 @@
 <head>
     <title>Xpiriance</title>
 
-    <!-- These are fixed css and js files need to include in every page -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  -->
-    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
-    <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="static/js/materialize.min.js"></script>
-    <!-- <script type="text/javascript" src="../static/js/stickyfill.js"></script> -->
-    <link rel="stylesheet" href="static/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="static/css/font-awesome.css"/>
-     
 
-    
-    <!-- These are required css files used in this page -->
-    <link type="text/css" rel="stylesheet" href="static/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
 
-    <!-- These are required js files used in this page -->
-    <script type="text/javascript" src="static/js/main.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/materialize.min.js"></script>
 
     <style type="text/css">
     	.logo{
@@ -99,7 +89,7 @@
 	                    <input class="login_email" id="login_email" name="email" Placeholder="Enter your email" type="text" required  title="Please enter your email or username" style="border-bottom: 0.18em solid #9e9e9e;">
 	                </div>
 	                <div class="col l12 s12 field-wrap input-field">
-	                    <input class="login_password" type="password" id="login_password-field" required autocomplete="off" placeholder="Enter your password"  title="Please enter password" name="password"  style="border-bottom: 0.18em solid #9e9e9e;">
+	                    <input class="login_password" type="password" id="login_password" required autocomplete="off" placeholder="Enter your password"  title="Please enter password" name="password"  style="border-bottom: 0.18em solid #9e9e9e;">
 	                </div>
 	                <div class="btn col l4 offset-l4 s8 offset-s2 login_btn">Login</div>
 				</form>
@@ -107,8 +97,10 @@
 			</div>
 
 			<div class="col l6 s12 video_container">
-	    		<iframe width="100%" height="350" src="https://www.youtube.com/embed/b5hiQJFEsjU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="box-shadow: 2px 2px 10px black;">
-	    		</iframe>
+	    		<!-- <iframe width="100%" height="350" src="https://www.youtube.com/embed/b5hiQJFEsjU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="box-shadow: 2px 2px 10px black;">
+	    		</iframe> -->
+	    		<!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
+	    		<iframe width="560" height="315" src="https://www.youtube.com/embed/Aq90Vk1gh08" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	        </div>
 
 		</div>
@@ -170,10 +162,16 @@
 		        type : "POST",
 		        data : request_data,
 		        success : function(response_data){
-		            console.log("You entered correct details");
-		            window.location.assign("http://127.0.0.1:8000/")
+		        	var x = Math.floor(Math.random() * 10);
+		        	if(x<5){
+		        		window.location.assign("https://tawk.to/chat/5bb278af8a438d2b0cdfe78e/default");
+		        	}
+		        	else{
+		        		window.location.assign("https://tawk.to/chat/5bb1dc358a438d2b0cdfe202/default");
+		        	}
 		        },
 		        error : function(xhr,errmsg,err){
+		        	console.log("this function is not working");
 		            console.log(xhr.status + ": " + xhr.responseText);
 		        }
 		    });
